@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Movie Rating</h1>
+    <form action="" id="movie-rating">
+        Movie<input id="movie" type = "text" required minlength="2">
+        Rating<input id="rating" type = "number" min ="0" max = "10">
+        <input type =submit>
+
+    </form>
+    <ol id = results></ol>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script>
+        $("form").on("submit",function(event){
+   console.log("submitted")
+    event.preventDefault()
+    let movie = $("#movie").val()
+    let rating = $("#rating").val()
+    $("#results").append("<li></l1>")
+    $("li").text(movie+' '+rating+"/10")
+    $("li").append("<button text='remove'>")
+    $("button").on("click", function(e){
+       let deleted = $(e.target).parent();
+       deleted.remove()
+    })
+})
+    </script>
+</body>
+</html>
